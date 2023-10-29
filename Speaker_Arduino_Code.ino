@@ -35,6 +35,7 @@ int MOSFET_Switch = 2;
 int pondNum;
 int homeNum;
 int lastPondNum = 0;
+int onHead = 0; //0 means off head, 1 means on
 
 void setup() {
   
@@ -104,7 +105,11 @@ void resetMotor(){
 void loop() {
   digitalWrite(MOSFET_Switch, LOW);
   resetMotor();
-  if(detectDistance() < 5){
+  if(detectDistance() > 5){
+    onHead = 0;
+  }
+  if(detectDistance() < 5 && onHead == 0){ //if on head for the first time only. This way it won't keep engaging once the first loop is done
+    onHead = 1;
     delay(2000);
     digitalWrite(MOSFET_Switch, HIGH);
     
@@ -269,5 +274,6 @@ void loop() {
         }
       }
     }
+    onHead = 1;
   }
 }
