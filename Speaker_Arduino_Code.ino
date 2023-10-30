@@ -135,6 +135,7 @@ void loop() {
         while(music.isPlaying()){
           //let music play
         }
+        resetMotor();
       }
     }
     else if(pondNum == 2){
@@ -146,6 +147,7 @@ void loop() {
         while(music.isPlaying()){
           //let music play
         }
+        resetMotor();
       }
     }
     else if(pondNum == 3){
@@ -157,6 +159,7 @@ void loop() {
         while(music.isPlaying()){
           //let music play
         }
+        resetMotor();
       }
     }
     else if(pondNum == 4){
@@ -168,6 +171,7 @@ void loop() {
         while(music.isPlaying()){
           //let music play
         }
+        resetMotor();
       }
     }
     else if(pondNum == 5){
@@ -179,6 +183,7 @@ void loop() {
         while(music.isPlaying()){
           //let music play
         }
+        resetMotor();
       }
     }
     else if(pondNum == 6){
@@ -190,6 +195,7 @@ void loop() {
         while(music.isPlaying()){
           //let music play
         }
+        resetMotor();
       }
     }
     else{
@@ -201,6 +207,7 @@ void loop() {
         while(music.isPlaying()){
           //let music play
         }
+        resetMotor();
       }
     }
   
@@ -221,6 +228,7 @@ void loop() {
         while(music.isPlaying()){
           //wait for sound to stop
         }
+        resetMotor();
       }
     }
     else if(homeNum == 2){
@@ -238,6 +246,7 @@ void loop() {
         while(music.isPlaying()){
           //wait for sound to stop
         }
+        resetMotor();
       }
     }
     else if(homeNum == 3){
@@ -255,6 +264,7 @@ void loop() {
         while(music.isPlaying()){
           //wait for sound to stop
         }
+        resetMotor();
       }
     }
     else {
@@ -272,6 +282,7 @@ void loop() {
         while(music.isPlaying()){
           //wait for sound to stop
         }
+        resetMotor();
       }
     }
     onHead = 1;

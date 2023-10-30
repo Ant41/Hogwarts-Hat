@@ -10,7 +10,7 @@ int pin5;
 int pin6;
 
 int max_limit = 30;
-int delay_time = 30;
+int delay_time = 15;
 int toggle = 0; //changes whether info is for pondering or house speech. 0 is pondering and 1 is house 
 
 void setup() {
@@ -27,14 +27,14 @@ void setup() {
 
 void runServo(int servo_direction){
 
-  if(servo_direction == 1){ //roughly a second
+  if(servo_direction == 1){ //roughly 0.5s
    for(pos = 0; pos <= max_limit; pos += 1){
     myservo.write(pos);
     delay(delay_time);
    }
   }
 
-  if(servo_direction == 0){ //roughly a second
+  if(servo_direction == 0){ //roughly 0.5s
     for(pos = max_limit; pos >= 0; pos -= 1){
       myservo.write(pos);
       delay(delay_time);
@@ -48,17 +48,17 @@ void readPins(){
   pin4 = digitalRead(4);
   pin5 = digitalRead(5);
   pin6 = digitalRead(6);
-//  Serial.println(pin2);
-//  Serial.println(pin3);
-//  Serial.println(pin4);
-//  Serial.println(pin5);
-//  Serial.println(pin6);
-//  Serial.println(" ");
+  Serial.println(pin2);
+  Serial.println(pin3);
+  Serial.println(pin4);
+  Serial.println(pin5);
+  Serial.println(pin6);
+  Serial.println(" ");
 }
 
 void voiceLoop(int numTimes){
   int count = 0;
-  while(count < numTimes){
+  while(count < numTimes*2){
     if(count%2 == 0){//if even number, then open mouth
       runServo(1);
     }
@@ -70,6 +70,7 @@ void voiceLoop(int numTimes){
 }
 
 void loop() {
+  delay(1000);
   readPins();
 
   while(pin2 == 0 && pin3 == 0 && pin4 == 0 && pin5 == 0 && pin6 == 0){ //neutral state
